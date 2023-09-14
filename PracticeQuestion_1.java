@@ -1,4 +1,4 @@
-package algorithms;
+import java.util.*;
 
 public class PracticeQuestion_1 {
 	/*
@@ -22,7 +22,12 @@ public class PracticeQuestion_1 {
 	 */
 	
 	public int findMissingNumber(int[] nums) {
-
+		Arrays.sort(nums);
+		for (int i = 1; i <= nums.length; i++) {
+			if (i != nums[i - 1])
+				return i;
+		}
+		return -1;
 	}
 
 	public static void main(String[] args) {

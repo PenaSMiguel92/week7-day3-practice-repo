@@ -1,4 +1,4 @@
-package algorithms;
+import java.util.*;
 
 public class PracticeQuestion_4 {
 	/*
@@ -12,4 +12,22 @@ public class PracticeQuestion_4 {
 	 * 		INPUT: nums = [2,7,11,15], target=9
 	 * 		OUTPUT: [0,1] (because nums[0] is 2, and nums[1] is 7 || nums[0] + nums[1] == 9)
 	 */
+
+	public int[] uniqueSum(int[] nums, int target) {
+		Map<Integer, Integer> map = new HashMap<>();
+		int[] ans = new int[2];
+		for (int i = 0; i < nums.length; i++) {
+			int comp = target-i;
+			if (!map.containsKey(comp))
+				map.put(comp, i);
+			else if (map.containsKey(nums[i])) {
+				ans[0] = map.get(nums[i]);
+				ans[1] = i;
+			}
+				
+		}
+		
+		return ans;
+	}
+	 
 }
